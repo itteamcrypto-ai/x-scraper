@@ -96,7 +96,12 @@ Follow these simple steps to get the scraper up and running:
 * To scrape a specific user, you must ensure that user is added to the MongoDB Users collection. The scraping logic is primarily handled in src/worker.ts.
 
 * A CRON JOB processes the next user in the sequence approximately every 4 minutes (configurable in src/index.ts).
+
+---
   
+## 🙏 CREDITS 
+Developed by the CryptoCrew community development team.
+
 ---
 ## ⚖️ LICENSE
 This project is distributed under the MIT LICENSE. See the LICENSE file for more details.
@@ -111,3 +116,6 @@ This project is distributed under the MIT LICENSE. See the LICENSE file for more
 * **DISCORD SETUP:** 🔗 Ensure your Discord webhooks are correctly configured and permissions are set.
 
 * **AI SERVICE:** 🤖 You must provide a valid API KEY for your chosen AI classification service (e.g., Gemini).
+
+
+
