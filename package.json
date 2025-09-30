@@ -1,0 +1,46 @@
+{
+  "name": "x-scraper",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "init": "npm run seed",
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js"
+  },
+  "_moduleAliases": {
+    "@models": "dist/models"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@google/genai": "^1.17.0",
+    "axios": "^1.11.0",
+    "discord.js": "^14.22.1",
+    "dotenv": "^17.2.2",
+    "module-alias": "^2.2.3",
+    "mongoose": "^8.18.0",
+    "node-cron": "^4.2.1",
+    "p-limit": "^7.1.1",
+    "puppeteer": "^24.18.0"
+  },
+  "devDependencies": {
+    "@types/axios": "^0.9.36",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
+    "@types/mongoose": "^5.11.96",
+    "@types/node": "^24.3.1",
+    "@types/node-cron": "^3.0.11",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "install": "^0.13.0",
+    "npm": "^11.6.0",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "tsx": "^4.20.5",
+    "typescript": "^5.9.2"
+  }
+}

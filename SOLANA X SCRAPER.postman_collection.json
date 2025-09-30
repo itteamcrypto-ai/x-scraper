@@ -1,0 +1,410 @@
+{
+	"info": {
+		"_postman_id": "347073dd-82f1-4bbb-9222-6bdc2a0041a3",
+		"name": "SOLANA X SCRAPER",
+		"description": "Postman collection for Users CRUD API at http://localhost:4000/users",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29337591"
+	},
+	"item": [
+		{
+			"name": "➕ Create User",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"testPostman\",\n    \"url\": \"https://x.com/testPostman\",\n    \"category\": \"test\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:4000/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "➕ Create User",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"testPostman\",\n    \"url\": \"https://x.com/testPostman\",\n    \"category\": \"test\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:4000/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "134"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"86-d5YVxvLbR+tdyPcZmEF3gb+65CA\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 09 Sep 2025 04:05:32 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": {\n        \"id\": \"68bfa78ca4dd0e3022dc6d92\",\n        \"username\": \"testPostman\",\n        \"url\": \"https://x.com/testPostman\",\n        \"category\": \"test\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "📋 Get All Users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "📋 Get All Users",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "207"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"cf-G2WTS8uP/ADHCsnPs/3dqrmGnBg\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 09 Sep 2025 04:06:02 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": [\n        {\n            \"username\": \"solana\",\n            \"url\": \"https://x.com/solana\",\n            \"active\": true,\n            \"category\": \"blockchain\"\n        },\n        {\n            \"username\": \"testPostman\",\n            \"url\": \"https://x.com/testPostman\",\n            \"active\": true,\n            \"category\": \"test\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "🔍 Get User by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/users/68bfa78ca4dd0e3022dc6d92",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"users",
+						"68bfa78ca4dd0e3022dc6d92"
+					],
+					"variable": [
+						{
+							"key": "userId",
+							"value": "replace-with-user-id"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "🔍 Get User by ID",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/users/68bfa78ca4dd0e3022dc6d92",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"users",
+								"68bfa78ca4dd0e3022dc6d92"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "116"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"74-6eq0q7j9PRj9InE/ltrvOT28P40\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 09 Sep 2025 04:09:07 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": {\n        \"username\": \"testPostman\",\n        \"url\": \"https://x.com/testPostman\",\n        \"active\": true,\n        \"category\": \"test\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "✏️ Update User",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"solana-updated\",\n    \"url\": \"https://x.com/solana\",\n    \"category\": \"ecosystem\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:4000/users/{{userId}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"users",
+						"{{userId}}"
+					],
+					"variable": [
+						{
+							"key": "userId",
+							"value": "replace-with-user-id"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "✏️ Update User",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"solana-updated\",\n    \"url\": \"https://x.com/solana\",\n    \"category\": \"ecosystem\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:4000/users/{{userId}}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"users",
+								"{{userId}}"
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "68bfa78ca4dd0e3022dc6d92"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "119"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"77-M0eGTeR5eqruO9NReF4cde5kcSM\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 09 Sep 2025 04:11:02 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"data\": {\n        \"username\": \"solana-updated\",\n        \"url\": \"https://x.com/solana\",\n        \"active\": true,\n        \"category\": \"ecosystem\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "❌ Delete User",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/users/{{userId}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"users",
+						"{{userId}}"
+					],
+					"variable": [
+						{
+							"key": "userId",
+							"value": "replace-with-user-id"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "userID",
+			"value": "68bfa78ca4dd0e3022dc6d92",
+			"type": "default"
+		}
+	]
+}
