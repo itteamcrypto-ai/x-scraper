@@ -1,6 +1,6 @@
-# 🚀 SOLANA-X-SCRAPER 🐦
+# 🚀 X-SCRAPER 🐦
 
-**SOLANA-X-SCRAPER** is an **OPEN-SOURCE** Node.js application designed for the Solana ecosystem that intelligently scrapes tweets and mentions from **X (FORMERLY TrageWITTER)**. It leves **PUPPETEER** for data extraction, processes the information using **AI** for classification and enrichment, and sends high-priority alerts to **DISCORD CHANNELS**. It's built to run reliably as a background service, using a cron job to process users sequentially every few minutes.
+**X-SCRAPER** is an **OPEN-SOURCE** Node.js application designed for scrapes tweets and mentions from **X (FORMERLY TWITTER)**. It leves **PUPPETEER** for data extraction, processes the information using **AI** for classification and enrichment, and sends high-priority alerts to **DISCORD CHANNELS**. It's built to run reliably as a background service, using a cron job to process users sequentially every few minutes.
 
 ---
 
