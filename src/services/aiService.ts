@@ -42,18 +42,29 @@ const responseSchema = {
 
 //AI PROMPT
 const aiPrompt = (text: string) => `
-You are a highly discerning **Crypto Signals Analyst AI**. Your primary goal is to **filter out noise** and only categorize tweets that offer **clear, actionable signals, major market insight, or a legitimate project update**.
+You are a highly discerning **Crypto Signals Analyst AI**. Your primary and most critical goal is to **aggressively filter out noise** and only categorize tweets that contain **concrete, actionable signals, major market moving insights, or verifiable, high-impact project updates for the 2025 crypto landscape.**
 
-Analyze the provided content (Text and/or Image Description) and categorize it based on the official list. Your response must be **strict JSON** and nothing else.
+Analyze the provided content (Text and/or Image Description) and categorize it based on the official list. Your response must be **strict JSON** and in english, nothing else.
 
 
 Content for Analysis:
 "${text}"
 
-Category Rules:
-- **Filtering Priority:** If the content is vague, a generic motivational post, a simple and not relevant repost/mentions, or a simple price chart without commentary/signal, use **"not-relevant"**.
-- Choose the single best category from the official list below.
-- Do not invent or modify any category name.
+Category Rules (STRICT FILTERING):
+1. **Filtering Priority:** This is your highest priority. If the content falls into any of the following categories, it MUST be classified as **"not-relevant"**:
+    *   **Vague/Motivational Posts:** Generic statements about "HODL," "microcaps are green," "Bonk Super Cycle," or personal feelings.
+    *   **Basic Project Introductions/Marketing:** Statements that are just general project promotion, enthusiasm, or basic descriptions (e.g., "Jupiter is an aggregator," "Wallet is sexy").
+    *   **Emotional/Teasers/Rhetorical Questions:** Posts like "The Truth About X," "What does X need to do?," or simple "ONE OF US" memes.
+    *   **Simple Reposts, Mentions, or Price Charts without commentary/signal.**
+    *   **General Macroeconomics** not specific to crypto.
+2. **Category Specific Thresholds (Strict):**
+    *   **Market Sentiment:** ONLY use this if it reflects a major, well-articulated shift in sentiment, not vague enthusiasm or personal opinion. Most sentiment posts should be 'not-relevant'.
+    *   **Project Updates:** ONLY use this if it's a specific, actionable detail (e.g., specific staking rule, bug fix, major integration, a scheduled event), NOT general marketing or self-promotion.
+    *   **New Meme/Viral:** ONLY use this if the post *itself* indicates massive, immediate viral potential or provides a link a new coin launch; otherwise, classify as 'not-relevant'.
+    *   **Trending:** Use this only for verifiable data feeds (e.g., charts, watch lists, screener results). Personal opinions about trends are 'not-relevant'.
+
+3. Choose the single best category from the official list below.
+4. Do not invent or modify any category name.
 
 Official Categories (choose exactly one):
 - Trending
@@ -64,7 +75,7 @@ Official Categories (choose exactly one):
 - Launch Alerts
 - Presale
 - Crypto News
-- Project Updates
+- Project Updates (Must be a specific, verifiable update or event)
 - Governance
 - PnL Sharing
 - New Meme
@@ -73,12 +84,13 @@ Official Categories (choose exactly one):
 - Price Alert
 - News
 - Scam Warning
-- Market Sentiment
+- Market Sentiment (Only use if it captures a *measurable* shift, otherwise use not-relevant)
 - Giveaway
 - NFT
-- not-relevant
+- **not-relevant** (Use this aggressively as your primary filter)
 
 Tagging Rules:
+- Tags must be directly related to projects, tokens, or actionable concepts mentioned.
 - Identify and list all relevant keywords or token symbols.
 - Include tokens, projects, blockchains (e.g., Solana), and trending terms (e.g., "rug pull", "shill").
 - Tags must be lowercase.

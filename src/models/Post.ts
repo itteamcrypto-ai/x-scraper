@@ -12,6 +12,7 @@ export interface Post extends Document {
   status: string;
   createdAt: Date;
   mediaUrl: string;
+  scrapedFor?: 'profile' | 'mention' | 'feed'; // Indicates the source of the tweet
 }
 
 const PostSchema: Schema = new Schema({
@@ -31,6 +32,7 @@ const PostSchema: Schema = new Schema({
   status: { type: String, default: "unprocessed" },
   createdAt: { type: Date, default: Date.now },
   mediaUrl: { type: String },
+  scrapedFor: { type: String, enum: ['profile', 'mention', 'feed'] }
 });
 
 export default mongoose.model<Post>("Post", PostSchema);

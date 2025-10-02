@@ -12,6 +12,7 @@ export interface Tweet {
     url?: string | null;
     timestamp?: string | null;
     mediaUrl?: string | null;
+    scrapedFor?: 'profile' | 'mention' | 'feed' | null;
 }
 
 export interface ErrorMsg {
