@@ -128,8 +128,11 @@ startWorker().catch((err) => {
 // // Start server
 // async function start() {
 //   app.listen(PORT, () => {
+//     connectDB();
 //     console.log(` Server running on http://localhost:${PORT}`);
-//     //startWorker();
+//     
+//     // // If u wanna still the API WORKING and the worker
+//     // startWorker();
 //   });
 // }
 

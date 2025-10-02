@@ -14,6 +14,7 @@ export interface TweetsIA extends Document {
   enriched?: EnrichedData[];
   createdAt: Date;
   mediaUrl: string | null;
+  scrapedFor?: 'profile' | 'mention' | 'feed'; // Indicates the source of the tweet
 }
 
 export interface EnrichedData {
@@ -54,6 +55,7 @@ const TweetIASchema: Schema = new Schema({
   },
   enriched: { type: [EnrichedDataSchema], default: [] },
   createdAt: { type: Date, default: Date.now },
+  scrapedFor: { type: String, enum: ['profile', 'mention', 'feed'], default: 'feed' }
 });
 
 export default mongoose.model<TweetsIA>("TweetsIA", TweetIASchema);

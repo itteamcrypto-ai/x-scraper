@@ -98,7 +98,8 @@ async function processTweet(t: Tweet) {
             username: t.username,
             text: t.text,
             timestamp: new Date(t?.timestamp ? t.timestamp : Date.now()),
-            mediaUrl: t.mediaUrl
+            mediaUrl: t.mediaUrl,
+            scrapedFor: t.scrapedFor === undefined || t.scrapedFor === null ? 'feed' : t.scrapedFor // Default to 'feed' if undefined or null,
         });
         await post.save();
         const now = Date.now();
@@ -209,7 +210,7 @@ async function processTweet(t: Tweet) {
                 }
             }
         } else if (analysis.category === 'error') {
-            console.log("Error classifying tweet whit IA", analysis)
+            console.log("Error classifying tweet whit IA", t.url);
             await Post.findOneAndUpdate({ tweetId: t.url }, { status: 'unprocessed' }, { new: true })
         }
     } catch (err) {
@@ -397,7 +398,11 @@ export async function scrapeMentions(page: Page, username: string) {
     }
 }
 
-// -------------------- Nueva función de Orquestación --------------------
+/**
+ * @description Scrapes and processes tweets and mentions for a user.
+ * @param browser 
+ * @param user { username: string }
+ */
 export async function processUserAndMentions(browser: Browser, user: { username: string }) {
     //console.log(`[--------- @${user.username}] Starting full scrape and process cycle...`);
     let page: Page | null = null;
@@ -411,6 +416,7 @@ export async function processUserAndMentions(browser: Browser, user: { username:
         if (!('error' in userTweets)) {
             //console.log(`Scraped ${userTweets.length} tweets from @${user.username}'s profile.`);
             for (const tweet of userTweets) {
+                tweet.scrapedFor = 'profile'; // Mark as profile tweet
                 await processTweet(tweet);
             }
         }
@@ -419,6 +425,7 @@ export async function processUserAndMentions(browser: Browser, user: { username:
         if (!('error' in userMentions)) {
             //console.log(`Scraped ${userMentions.length} mentions for @${user.username}.`);
             for (const tweet of userMentions) {
+                tweet.scrapedFor = 'mention'; // Mark as mention tweet
                 await processTweet(tweet);
             }
         }

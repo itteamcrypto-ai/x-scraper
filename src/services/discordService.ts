@@ -120,12 +120,18 @@ function createDiscordEmbed(tweet: TweetsIA) {
   const imageUrl = tweet.mediaUrl ? tweet.mediaUrl : null;
   const imageField = imageUrl ? { url: imageUrl } : null;
 
+  let authorName = `@${tweet.username}`; 
+
+  if (tweet.scrapedFor === 'mention') {
+    const targetUser = tweet.tweetId.split('/')[1]; 
+    authorName = `👤 ${targetUser} (Mention or replie for @${tweet.username})`; 
+  }
 
   const embed = {
     embeds: [
       {
         author: {
-          name: `@${tweet.username}`,
+          name: authorName,
           url: `https://x.com${tweet.tweetId}`
         },
         title: title,
