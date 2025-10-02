@@ -2,6 +2,8 @@
 import { GoogleGenAI, Type } from "@google/genai";
 import "dotenv/config";
 import axios from "axios";
+import { Category } from "worker.js";
+
 
 interface ClassificationInput {
     text: string;
@@ -65,29 +67,10 @@ Category Rules (STRICT FILTERING):
 
 3. Choose the single best category from the official list below.
 4. Do not invent or modify any category name.
+5. **not-relevant** (Use this aggressively as your primary filter)
 
 Official Categories (choose exactly one):
-- Trending
-- Viral
-- Airdrop
-- Market Analysis
-- Signals
-- Launch Alerts
-- Presale
-- Crypto News
-- Project Updates (Must be a specific, verifiable update or event)
-- Governance
-- PnL Sharing
-- New Meme
-- Contract Alert
-- Listing
-- Price Alert
-- News
-- Scam Warning
-- Market Sentiment (Only use if it captures a *measurable* shift, otherwise use not-relevant)
-- Giveaway
-- NFT
-- **not-relevant** (Use this aggressively as your primary filter)
+"${Object.values(Category).join('", "')}"
 
 Tagging Rules:
 - Tags must be directly related to projects, tokens, or actionable concepts mentioned.

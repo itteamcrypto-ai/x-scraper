@@ -24,7 +24,7 @@ interface EnrichedData {
     blockchain?: string;
 }
 
-enum Category {
+export enum Category {
     Trending = 'Trending',
     Viral = 'Viral',
     Airdrop = 'Airdrop',
